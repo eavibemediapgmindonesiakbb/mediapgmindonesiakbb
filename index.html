@@ -571,7 +571,50 @@ body{
 }
 
 }
+/* MOBILE MENU */
 
+.menu-toggle{
+  display:none;
+  background:none;
+  border:none;
+  color:white;
+  font-size:28px;
+  cursor:pointer;
+}
+
+/* HP */
+@media(max-width:768px){
+
+  .menu-toggle{
+    display:block;
+    position:absolute;
+    left:15px;
+    top:15px;
+    z-index:999;
+  }
+
+  .sidebar{
+    position:fixed;
+    top:0;
+    left:-100%;
+    width:280px;
+    height:100%;
+    background:white;
+    z-index:998;
+    transition:0.3s;
+    overflow-y:auto;
+  }
+
+  .sidebar.show{
+    left:0;
+  }
+
+  .content{
+    width:100%;
+    padding:15px;
+  }
+
+}
 
 </style>
 </head>
@@ -597,6 +640,12 @@ body{
   <button class="login-btn">
     Login User
   </button>
+<button class="menu-toggle"
+onclick="toggleSidebar()">
+
+☰
+
+</button>
 
 </div>
 
@@ -719,7 +768,15 @@ function setPage(el){
 
   // active
   el.classList.add('active');
+// tutup sidebar di HP
+if(window.innerWidth < 768){
 
+  document
+    .querySelector('.sidebar')
+    .classList
+    .remove('show');
+
+}
   let page = el.getAttribute('data-page');
 
   let content = document.getElementById('content');
@@ -1390,6 +1447,14 @@ if(el){
       });
 
     });
+
+}
+function toggleSidebar(){
+
+  document
+    .querySelector('.sidebar')
+    .classList
+    .toggle('show');
 
 }
 </script>
