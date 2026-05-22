@@ -1702,11 +1702,11 @@ function openAdmin(){
 }
 if(user==="admin" && pass==="pgm123"){
 
-  localStorage.setItem("role","admin");
-
   alert("Login Admin Berhasil");
 
-  openAdmin();
+  document.getElementById("adminPanel").style.display = "block";
+
+  loadPengajuan();
 
 }
 </script>
