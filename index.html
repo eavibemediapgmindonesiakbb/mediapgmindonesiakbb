@@ -830,6 +830,19 @@ onclick="setPage(this)">
 
 </div>
 </div>
+   <div id="nikLoginBox" style="padding:20px;">
+
+  <h2>Masuk Anggota</h2>
+
+  <input id="nikInput" placeholder="Masukkan NIK">
+
+  <button onclick="cekNIK()">
+    Lanjut
+  </button>
+
+  <p id="nikStatus"></p>
+
+</div>
 <!-- LOGIN POPUP -->
 <div class="login-popup" id="loginPopup">
 
@@ -859,7 +872,19 @@ onclick="setPage(this)">
   </div>
 
 </div>
+<div id="daftarBox">
 
+  <h3>Daftar Anggota</h3>
+
+  <input id="d_nik" placeholder="NIK">
+  <input id="d_nama" placeholder="Nama">
+  <input id="d_hp" placeholder="No HP">
+
+  <button onclick="kirimDaftar()">
+    Kirim Pengajuan
+  </button>
+
+</div>
 <!-- SCRIPT -->
 <script>
 let totalAnggotaGlobal = 0;
@@ -1709,6 +1734,77 @@ if(user==="admin" && pass==="pgm123"){
   loadPengajuan();
 
 }
+   function cekNIK(){
+
+  let nik = document.getElementById("nikInput").value.trim();
+
+  if(nik === ""){
+    alert("Masukkan NIK");
+    return;
+  }
+
+  fetch("URL_GOOGLE_SHEET_ANGGOTA")
+  .then(res => res.json())
+  .then(data => {
+
+    let user = data.find(x => x.nik == nik);
+
+    if(user){
+
+      if(user.status === "APPROVED"){
+        localStorage.setItem("role","user");
+        localStorage.setItem("nik",nik);
+
+        document.getElementById("nikStatus").innerText =
+        "Login berhasil, masuk aplikasi...";
+
+        setTimeout(()=>{
+          document.getElementById("nikLoginBox").style.display = "none";
+          document.querySelector(".container").style.display = "flex";
+        },1000);
+
+      } else {
+        document.getElementById("nikStatus").innerText =
+        "Akun masih menunggu persetujuan admin";
+      }
+
+    } else {
+      document.getElementById("nikStatus").innerText =
+      "NIK belum terdaftar. Silakan daftar dulu.";
+    }
+
+  });
+
+}
+   function kirimDaftar(){
+
+  let data = {
+    nik: document.getElementById("d_nik").value,
+    nama: document.getElementById("d_nama").value,
+    hp: document.getElementById("d_hp").value,
+    status: "PENDING"
+  };
+
+  fetch("URL_APPS_SCRIPT", {
+    method: "POST",
+    body: JSON.stringify(data)
+  })
+  .then(res => res.text())
+  .then(() => {
+    alert("Pengajuan terkirim, tunggu admin verifikasi");
+  });
+
+}
+   window.addEventListener("load", function(){
+
+  let role = localStorage.getItem("role");
+
+  if(role === "user"){
+    document.getElementById("nikLoginBox").style.display = "none";
+    document.querySelector(".container").style.display = "flex";
+  }
+
+});
 </script>
 
 </body>
