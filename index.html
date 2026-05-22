@@ -816,7 +816,19 @@ onclick="setPage(this)">
     <p>Sistem Data Anggota PGM Indonesia KBB</p>
 
   </div>
+<div id="adminPanel" style="display:none;">
 
+  <h2>🧑‍💼 Admin Pengajuan Akun</h2>
+
+  <button onclick="loadPengajuan()">
+    🔄 Refresh Data
+  </button>
+
+  <div id="listPengajuan" style="margin-top:20px;">
+    Loading...
+  </div>
+
+</div>
 </div>
 <!-- LOGIN POPUP -->
 <div class="login-popup" id="loginPopup">
@@ -1642,6 +1654,60 @@ function processLogin(){
   }
 
   alert("Username / Password salah");
+}
+function loadPengajuan(){
+
+  fetch("URL_APPS_SCRIPT_GET_DATA")
+  .then(res => res.json())
+  .then(data => {
+
+    let html = "";
+
+    data.forEach(item => {
+
+      if(item.Status === "PENDING"){
+
+        html += `
+          <div style="padding:10px;border:1px solid #ddd;margin-bottom:10px;border-radius:10px;">
+            
+            <b>NIK:</b> ${item.NIK} <br>
+            <b>Nama:</b> ${item.Nama} <br>
+            <b>HP:</b> ${item.HP} <br>
+            <b>Status:</b> ${item.Status} <br><br>
+
+            <button onclick="approveUser('${item.NIK}')">
+              ✅ Approve
+            </button>
+
+            <button onclick="rejectUser('${item.NIK}')">
+              ❌ Reject
+            </button>
+
+          </div>
+        `;
+      }
+
+    });
+
+    document.getElementById("listPengajuan").innerHTML =
+    html || "Tidak ada pengajuan";
+
+  });
+
+}
+function openAdmin(){
+
+  document.getElementById("adminPanel").style.display = "block";
+
+}
+if(user==="admin" && pass==="pgm123"){
+
+  localStorage.setItem("role","admin");
+
+  alert("Login Admin Berhasil");
+
+  openAdmin();
+
 }
 </script>
 
