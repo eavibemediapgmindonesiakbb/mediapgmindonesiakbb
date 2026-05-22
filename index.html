@@ -9,18 +9,31 @@
 <title>PGM Indonesia KBB</title>
 
 <style>
-/* ===================== GLOBAL ===================== */
-*{margin:0;padding:0;box-sizing:border-box;font-family:Arial;}
-body{background:#f1f5f9;padding-bottom:80px;}
 
-/* HEADER */
+/* =====================
+   GLOBAL
+===================== */
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Arial;
+}
+
+body{
+  background:#f1f5f9;
+}
+
+/* =====================
+   HEADER
+===================== */
 .header{
   background:linear-gradient(135deg,#0f766e,#115e59);
   color:white;
   padding:12px 16px;
   display:flex;
-  justify-content:space-between;
   align-items:center;
+  justify-content:space-between;
   position:relative;
 }
 
@@ -31,32 +44,88 @@ body{background:#f1f5f9;padding-bottom:80px;}
   display:flex;
   align-items:center;
   gap:10px;
+  text-align:center;
 }
 
-/* BUTTON */
+.header-center img{
+  width:45px;
+  height:45px;
+  object-fit:cover;
+}
+
 .login-btn{
-  background:#22c55e;border:none;
-  padding:8px 14px;border-radius:8px;
-  color:white;cursor:pointer;
+  background:#22c55e;
+  border:none;
+  padding:8px 14px;
+  border-radius:8px;
+  color:white;
+  cursor:pointer;
+  font-size:13px;
 }
 
-.menu-toggle{
-  display:none;
-  background:none;border:none;
-  color:white;font-size:28px;
+.login-btn:hover{
+  background:#16a34a;
 }
 
-/* LAYOUT */
-.container{display:flex;min-height:100vh;}
+/* =====================
+   CONTAINER
+===================== */
+.container{
+  display:flex;
+  min-height:100vh;
+}
+/* =====================
+   SIDEBAR
+===================== */
 .sidebar{
-  width:260px;background:#fff;
-  padding:15px;border-right:1px solid #e5e7eb;
-  display:flex;flex-direction:column;
+  width:260px;
+  background:#ffffff;
+  padding:15px;
+  border-right:1px solid #e5e7eb;
+
+  display:flex;
+  flex-direction:column;
+
+  min-height:100vh;
 }
-.content{flex:1;padding:20px;}
+
+/* MEDIA BOX */
+.media-box{
+  margin-bottom:15px;
+  padding:10px;
+}
+
+.media-row{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+.media-row img{
+  width:45px;
+  height:45px;
+  object-fit:cover;
+  border-radius:8px;
+}
+
+.tagline{
+  font-size:11px;
+  margin-top:6px;
+  color:#16a34a;
+  font-weight:600;
+}
+
+.tagline2{
+  font-size:11px;
+  color:#2563eb;
+  font-weight:600;
+}
 
 /* MENU */
 .menu-btn{
+  display:flex;
+  align-items:center;
+  gap:8px;
   width:100%;
   margin:6px 0;
   padding:10px;
@@ -65,71 +134,492 @@ body{background:#f1f5f9;padding-bottom:80px;}
   color:white;
   border-radius:8px;
   cursor:pointer;
+  text-align:left;
+  transition:0.2s;
 }
-.menu-btn.active{background:#0f766e;}
 
-/* CARD */
+.menu-btn:hover{
+  background:#15803d;
+  transform:translateX(2px);
+}
+
+.menu-btn.active{
+  background:#0f766e !important;
+  transform:translateX(6px);
+  box-shadow:0 4px 10px rgba(0,0,0,0.08);
+}
+
+/* SIDEBAR TITLE */
+.sidebar h3{
+  margin:10px 0;
+  font-size:14px;
+}
+
+/* CONTENT */
+.content{
+  flex:1;
+  padding:20px;
+}
+
+/* =====================
+   DOWNLOAD CENTER
+===================== */
+
 .download-grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:15px;
+  gap:20px;
+  margin-top:20px;
 }
+
 .download-card{
-  background:#fff;
-  padding:15px;
-  border-radius:15px;
+  background:white;
+  padding:20px;
+  border-radius:16px;
   box-shadow:0 4px 10px rgba(0,0,0,0.06);
+  transition:0.25s;
 }
+
+.download-card:hover{
+  transform:translateY(-4px);
+}
+
+.download-icon{
+  font-size:40px;
+  margin-bottom:10px;
+}
+
+.download-card h3{
+  margin-bottom:10px;
+  color:#0f172a;
+}
+
+.download-card p{
+  font-size:14px;
+  color:#555;
+  line-height:1.5;
+  margin-bottom:15px;
+}
+
 .download-btn{
-  width:100%;
-  margin-top:10px;
-  padding:10px;
   background:#0f766e;
   color:white;
   border:none;
+  padding:10px 16px;
   border-radius:10px;
-}
-
-/* BOTTOM NAV */
-.bottom-nav{
-  position:fixed;
-  bottom:0;
-  left:0;
-  width:100%;
-  display:flex;
-  background:white;
-  border-top:1px solid #ddd;
-  z-index:999;
-}
-
-.nav-item{
-  flex:1;
-  text-align:center;
-  padding:10px;
-  font-size:12px;
   cursor:pointer;
 }
 
-.nav-item.active{
-  color:#0f766e;
+.download-btn:hover{
+  background:#115e59;
+}
+
+/* =====================
+   IURAN FORM
+===================== */
+
+.form-box{
+  background:white;
+  padding:25px;
+  border-radius:18px;
+  box-shadow:0 4px 12px rgba(0,0,0,0.06);
+  max-width:700px;
+}
+
+.form-group{
+  margin-bottom:15px;
+}
+
+.form-group label{
+  display:block;
+  margin-bottom:6px;
+  font-size:14px;
   font-weight:bold;
 }
 
-/* MOBILE */
+.form-group input,
+.form-group select,
+.form-group textarea{
+  width:100%;
+  padding:12px;
+  border:1px solid #d1d5db;
+  border-radius:10px;
+  outline:none;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus{
+  border:1px solid #0f766e;
+}
+
+.submit-btn{
+  background:#0f766e;
+  color:white;
+  border:none;
+  padding:12px 20px;
+  border-radius:10px;
+  cursor:pointer;
+  font-size:15px;
+}
+
+.submit-btn:hover{
+  background:#115e59;
+}
+
+/* =====================
+   DONASI BOX
+===================== */
+
+.donasi-box{
+  background:#f0fdf4;
+  border:1px solid #bbf7d0;
+  padding:15px;
+  border-radius:16px;
+  margin-top:20px;
+  text-align:center;
+}
+
+.donasi-box h4{
+  color:#166534;
+  margin-bottom:10px;
+}
+
+.donasi-box p{
+  font-size:12px;
+  color:#444;
+  margin-bottom:8px;
+  line-height:1.5;
+}
+
+.donasi-box img{
+  width:60px;
+  margin:10px 0;
+}
+
+.donasi-number{
+  font-size:18px;
+  font-weight:bold;
+  color:#0f766e;
+}
+
+/* =====================
+   RESPONSIVE
+===================== */
 @media(max-width:768px){
-  .container{flex-direction:column;}
+
+  .container{
+    flex-direction:column;
+  }
+
+  .sidebar{
+    width:100%;
+  }
+
+}
+/* DONASI BUTTON */
+
+.donasi-btn{
+  width:100%;
+  margin-top:10px;
+  background:#dc2626;
+  color:white;
+  border:none;
+  padding:10px;
+  border-radius:10px;
+  cursor:pointer;
+  font-size:14px;
+  transition:0.2s;
+}
+
+.donasi-btn:hover{
+  background:#b91c1c;
+}
+/* =====================
+   DATA ANGGOTA
+===================== */
+
+.stats-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+  gap:15px;
+  margin-bottom:20px;
+}
+
+.stat-card{
+  background:white;
+  padding:20px;
+  border-radius:16px;
+  box-shadow:0 4px 10px rgba(0,0,0,0.06);
+}
+
+.stat-card h2{
+  color:#0f766e;
+  margin-bottom:6px;
+}
+
+.search-box{
+  margin-bottom:20px;
+}
+
+.search-box input{
+  width:100%;
+  padding:14px;
+  border-radius:12px;
+  border:1px solid #d1d5db;
+  outline:none;
+}
+
+.anggota-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:20px;
+}
+
+.anggota-card{
+  background:white;
+  border-radius:18px;
+  padding:20px;
+  box-shadow:0 4px 10px rgba(0,0,0,0.06);
+  transition:0.2s;
+}
+
+.anggota-card:hover{
+  transform:translateY(-4px);
+}
+
+.anggota-avatar{
+  width:70px;
+  height:70px;
+  border-radius:50%;
+  background:#0f766e;
+  color:white;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:28px;
+  margin-bottom:15px;
+}
+
+.detail-btn{
+  margin-top:15px;
+  background:#0f766e;
+  color:white;
+  border:none;
+  padding:10px 14px;
+  border-radius:10px;
+  cursor:pointer;
+}
+/* FOTO ANGGOTA */
+
+.anggota-foto{
+  width:80px;
+  height:80px;
+  border-radius:50%;
+  object-fit:cover;
+  border:3px solid #0f766e;
+  margin-bottom:15px;
+}
+
+/* ===== UPGRADE PENDATAAN UI ===== */
+.download-card{
+  background:white;
+  padding:20px;
+  border-radius:18px;
+  box-shadow:0 6px 18px rgba(0,0,0,0.08);
+  transition:0.25s;
+  border:1px solid #f1f5f9;
+}
+
+.download-card:hover{
+  transform:translateY(-6px);
+  box-shadow:0 10px 25px rgba(0,0,0,0.12);
+}
+
+.download-icon{
+  font-size:42px;
+  margin-bottom:10px;
+  transition:0.3s;
+}
+
+.download-card:hover .download-icon{
+  transform:scale(1.1);
+}
+
+.download-card h3{
+  font-size:16px;
+}
+
+.download-card p{
+  font-size:13px;
+  color:#64748b;
+}
+
+.download-btn{
+  width:100%;
+  margin-top:10px;
+  font-weight:bold;
+  letter-spacing:0.3px;
+}
+
+/* BADGE */
+.badge{
+  position:absolute;
+  top:10px;
+  right:10px;
+  background:#0f766e;
+  color:white;
+  font-size:11px;
+  padding:4px 8px;
+  border-radius:8px;
+}
+
+/* POSISI RELATIVE CARD */
+.download-card{
+  position:relative;
+}
+
+/* KTA CARD */
+.download-card.kta{
+  border-left:5px solid #16a34a;
+}
+
+/* TAHAP 2 CARD */
+.download-card.tahap2{
+  border-left:5px solid #2563eb;
+}
+
+/* ICON LEBIH HIDUP */
+.download-icon{
+  font-size:44px;
+  transition:0.3s;
+}
+
+.download-card:hover .download-icon{
+  transform:rotate(5deg) scale(1.1);
+}
+.stat-card{
+  text-align:center;
+  transition:0.2s;
+}
+
+.stat-card:hover{
+  transform:translateY(-4px);
+  box-shadow:0 8px 18px rgba(0,0,0,0.08);
+}
+
+.stat-card h2{
+  font-size:28px;
+  margin-bottom:5px;
+}
+
+.stat-card b{
+  color:#0f766e;
+}
+
+@media(max-width:768px){
+
+  .container{
+    flex-direction:column;
+    height:auto;
+    overflow:visible;
+  }
+
+  .sidebar{
+    width:100%;
+    height:auto;
+    position:relative;
+  }
+
+  .content{
+    height:auto;
+    overflow:visible;
+  }
+.header{
+  flex-direction:column;
+  gap:10px;
+  text-align:center;
+  padding:15px;
+}
+
+.header-center{
+  position:static;
+  transform:none;
+  flex-direction:column;
+}
+
+.login-btn{
+  width:100%;
+}
+
+.menu-btn{
+  padding:14px;
+  font-size:15px;
+}
+
+.download-grid,
+.anggota-grid,
+.stats-grid{
+  grid-template-columns:1fr;
+}
+
+.form-box{
+  padding:18px;
+}
+
+.download-btn,
+.submit-btn,
+.detail-btn,
+.donasi-btn{
+  width:100%;
+}
+
+}
+/* MOBILE MENU */
+
+.menu-toggle{
+  display:none;
+  background:none;
+  border:none;
+  color:white;
+  font-size:28px;
+  cursor:pointer;
+}
+
+/* HP */
+@media(max-width:768px){
+
+  .menu-toggle{
+    display:block;
+    position:absolute;
+    left:15px;
+    top:15px;
+    z-index:999;
+  }
+
   .sidebar{
     position:fixed;
-    left:-100%;
     top:0;
+    left:-100%;
+    width:280px;
     height:100%;
-    width:260px;
-    transition:0.3s;
+    background:white;
     z-index:998;
+    transition:0.3s;
+    overflow-y:auto;
   }
-  .sidebar.show{left:0;}
-  .menu-toggle{display:block;}
+
+  .sidebar.show{
+    left:0;
+  }
+
+  .content{
+    width:100%;
+    padding:15px;
+  }
+
 }
+
 </style>
 </head>
 
@@ -137,17 +627,30 @@ body{background:#f1f5f9;padding-bottom:80px;}
 
 <!-- HEADER -->
 <div class="header">
-  <button class="menu-toggle" onclick="toggleSidebar()">☰</button>
+
+  <div></div>
 
   <div class="header-center">
-    <img src="https://i.imgur.com/aLYPqyB.png" width="40">
+
+    <img src="https://i.imgur.com/aLYPqyB.png">
+
     <div>
-      <b>PGM Indonesia KBB</b><br>
-      <small>Perkumpulan Guru Madrasah</small>
+      <b>PGM Indonesia Bandung Barat</b><br>
+      <small>Perkumpulan Guru Madrasah (PGM)</small>
     </div>
+
   </div>
 
-  <button class="login-btn">Login</button>
+  <button class="login-btn">
+    Login User
+  </button>
+<button class="menu-toggle"
+onclick="toggleSidebar()">
+
+☰
+
+</button>
+
 </div>
 
 <!-- CONTAINER -->
@@ -155,102 +658,830 @@ body{background:#f1f5f9;padding-bottom:80px;}
 
   <!-- SIDEBAR -->
   <div class="sidebar">
+  
+    <div>
 
-    <button class="menu-btn active" data-page="home" onclick="setPage(this)">🏠 Beranda</button>
-    <button class="menu-btn" data-page="pendataan" onclick="setPage(this)">📋 Pendataan</button>
-    <button class="menu-btn" data-page="anggota" onclick="setPage(this)">👥 Anggota</button>
-    <button class="menu-btn" data-page="download" onclick="setPage(this)">⬇ Download</button>
-    <button class="menu-btn" data-page="info" onclick="setPage(this)">📢 Info</button>
+      <!-- MEDIA -->
+      <div class="media-box">
 
+        <div class="media-row">
+
+          <img src="https://i.imgur.com/K2m1sLp.png">
+
+          <div>
+            <b>Tim Media PGM Indonesia KBB</b>
+          </div>
+
+        </div>
+
+        <div class="tagline">
+          Bergerak Berdampak Menebar Manfaat
+        </div>
+
+        <div class="tagline2">
+          Suara Guru Suara Perubahan
+        </div>
+
+      </div>
+
+      <hr>
+
+      <!-- MENU -->
+      <button class="menu-btn active" data-page="home" onclick="setPage(this)">
+        🏠 Beranda
+      </button>
+
+      <h3>PGM Indonesia KBB</h3>
+
+      <button class="menu-btn" data-page="pendataan" onclick="setPage(this)">
+        📋 Pendataan Anggota
+      </button>
+
+      <button class="menu-btn" data-page="anggota" onclick="setPage(this)">
+        👥 Data Anggota
+      </button>
+
+      <button class="menu-btn" data-page="iuran" onclick="setPage(this)">
+        💰 Iuran Anggota
+      </button>
+
+      <button class="menu-btn" data-page="download" onclick="setPage(this)">
+        ⬇ Download
+      </button>
+
+      <button class="menu-btn" data-page="chat" onclick="setPage(this)">
+        💬 Ruang Chat
+      </button>
+
+      <button class="menu-btn" data-page="info" onclick="setPage(this)">
+        📢 Berbagi Info
+      </button>
+      <button class="menu-btn" data-page="pengurus" onclick="setPage(this)">
+  🧑‍💼  Pengurus
+      </button>
+    </div>
+
+    <!-- DONASI -->
+    <div class="donasi-box">
+
+      <h4>❤️ Donasi Pengembang</h4>
+
+      <p>
+        Dukung Pengembangan Sistem
+        PGM Indonesia KBB
+      </p>
+
+      <img src="https://upload.wikimedia.org/wikipedia/commons/7/72/Logo_dana_blue.svg">
+
+      <div class="donasi-number">
+        0812xxxxxxx
+      </div>
+
+      <p>
+        a.n Tim Media PGM IKBB
+      </p>
+
+    </div>
+<button class="donasi-btn"
+data-page="donasi"
+onclick="setPage(this)">
+
+  💖 Kirim Donasi
+
+</button>
   </div>
 
   <!-- CONTENT -->
   <div class="content" id="content">
-    <h2>Selamat Datang 👋</h2>
+
+    <h2>Ahlan wa Sahlan 👋</h2>
+    <p>Sistem Data Anggota PGM Indonesia KBB</p>
+
   </div>
-
-</div>
-
-<!-- BOTTOM NAV -->
-<div class="bottom-nav">
-
-  <div class="nav-item active" onclick="setPage(document.querySelector('[data-page=home]'))">🏠<br>Home</div>
-
-  <div class="nav-item" onclick="setPage(document.querySelector('[data-page=pendataan]'))">📋<br>Data</div>
-
-  <div class="nav-item" onclick="setPage(document.querySelector('[data-page=download]'))">⬇<br>Download</div>
-
-  <div class="nav-item" onclick="setPage(document.querySelector('[data-page=info]'))">📢<br>Info</div>
 
 </div>
 
 <!-- SCRIPT -->
 <script>
-
 let totalAnggotaGlobal = 0;
-
 function setPage(el){
 
-  if(!el) return;
-
-  // sidebar menu active
+  // remove active
   document.querySelectorAll('.menu-btn')
-  .forEach(b => b.classList.remove('active'));
+    .forEach(btn => btn.classList.remove('active'));
 
-  if(el.classList.contains('menu-btn')){
-    el.classList.add('active');
-  }
+  // active
+  el.classList.add('active');
+// tutup sidebar di HP
+if(window.innerWidth < 768){
 
-  // bottom nav active reset
-  document.querySelectorAll('.nav-item')
-  .forEach(n => n.classList.remove('active'));
+  document
+    .querySelector('.sidebar')
+    .classList
+    .remove('show');
 
+}
   let page = el.getAttribute('data-page');
+
   let content = document.getElementById('content');
 
   /* HOME */
   if(page === 'home'){
-    content.innerHTML = `
-      <h2>Home</h2>
-      <p>Sistem PGM Indonesia KBB</p>
-    `;
-  }
+
+  let jam = new Date().getHours();
+  let sapaan = "Selamat Datang";
+
+  if(jam < 11) sapaan = "Selamat Pagi ☀️";
+  else if(jam < 15) sapaan = "Selamat Siang 🌤️";
+  else if(jam < 18) sapaan = "Selamat Sore 🌥️";
+  else sapaan = "Selamat Malam 🌙";
+
+  content.innerHTML = `
+
+  <div style="margin-bottom:15px;">
+    <h2>${sapaan}</h2>
+    <p style="color:#64748b;">
+      Sistem PGM Indonesia KBB
+    </p>
+  </div>
+
+  <div class="stats-grid">
+
+    <div class="stat-card">
+      <h2 id="statAnggota">0</h2>
+      <p>Total Anggota</p>
+      <b>Terdaftar</b>
+    </div>
+
+    <div class="stat-card">
+      <h2>📋</h2>
+      <p>Pendataan</p>
+      <b>Aktif</b>
+    </div>
+
+    <div class="stat-card">
+      <h2>⬇️</h2>
+      <p>Download</p>
+      <b>Siap</b>
+    </div>
+
+    <div class="stat-card">
+      <h2>💰</h2>
+      <p>Iuran</p>
+      <b>Online</b>
+    </div>
+
+  </div>
+
+  <br>
+
+  <div class="download-grid">
+
+    <div class="download-card">
+      <div class="download-icon">👥</div>
+      <h3>Data Anggota</h3>
+      <button class="download-btn"
+      onclick="document.querySelector('[data-page=anggota]').click()">
+        Buka
+      </button>
+    </div>
+
+    <div class="download-card">
+      <div class="download-icon">📋</div>
+      <h3>Pendataan</h3>
+      <button class="download-btn"
+      onclick="document.querySelector('[data-page=pendataan]').click()">
+        Buka
+      </button>
+    </div>
+
+    <div class="download-card">
+      <div class="download-icon">⬇️</div>
+      <h3>Download</h3>
+      <button class="download-btn"
+      onclick="document.querySelector('[data-page=download]').click()">
+        Buka
+      </button>
+    </div>
+
+    <div class="download-card">
+      <div class="download-icon">💰</div>
+      <h3>Iuran</h3>
+      <button class="download-btn"
+      onclick="document.querySelector('[data-page=iuran]').click()">
+        Buka
+      </button>
+    </div>
+
+  </div>
+
+  `;
+
+  // 🔥 ANIMASI COUNTER
+  setTimeout(() => {
+
+    let target = totalAnggotaGlobal || 0;
+    let el = document.getElementById("statAnggota");
+
+    let count = 0;
+
+    let interval = setInterval(() => {
+
+      count++;
+      el.innerText = count;
+
+      if(count >= target){
+        clearInterval(interval);
+        el.innerText = target;
+      }
+
+    }, 20);
+
+  }, 300);
+
+}
 
   /* PENDATAAN */
   if(page === 'pendataan'){
+
     content.innerHTML = `
-      <h2>Pendataan</h2>
-      <p>Form tersedia</p>
+
+<h2 style="margin-bottom:10px;">
+  📋 Pendataan Anggota
+</h2>
+
+<p style="margin-bottom:20px;color:#555;">
+  Pilih layanan pendataan yang tersedia.
+</p>
+
+<div class="download-grid">
+
+  <!-- KTA -->
+  <div class="download-card kta">
+
+    <div class="badge">UTAMA</div>
+
+    <div class="download-icon">🆔</div>
+
+    <h3>Pembuatan KTA</h3>
+
+    <p>Form resmi pembuatan KTA anggota PGM Indonesia KBB.</p>
+
+    <button class="download-btn"
+    onclick="window.open('https://forms.gle/et8DtwZTvmrtRgvS9','_blank')">
+      Isi Form
+    </button>
+
+  </div>
+
+  <!-- TAHAP 2 -->
+  <div class="download-card tahap2">
+
+    <div class="badge">UPDATE</div>
+
+    <div class="download-icon">📋</div>
+
+    <h3>Pendataan Tahap 2</h3>
+
+    <p>Update data anggota lanjutan tahap 2.</p>
+
+    <button class="download-btn"
+    onclick="window.open('https://forms.gle/cWMf7UG6XXsmwJ1o9','_blank')">
+      Isi Form
+    </button>
+
+  </div>
+
+</div>
+
+`;
+
+  }
+
+  /* DATA ANGGOTA */
+  if(page === 'anggota'){
+
+  content.innerHTML = `
+
+  <h2 style="margin-bottom:20px;">
+    👥 Data Anggota
+  </h2>
+
+  <div class="stats-grid">
+
+    <div class="stat-card">
+      <h2 id="totalAnggota">0</h2>
+      <p>Total Anggota</p>
+    </div>
+
+  </div>
+
+  <div class="search-box">
+
+    <input type="text"
+    id="searchAnggota"
+    placeholder="🔍 Cari anggota...">
+
+  </div>
+
+  <div class="anggota-grid"
+  id="anggotaGrid">
+
+    Loading...
+
+  </div>
+
+  `;
+
+  loadAnggota();
+
+}
+
+  /* IURAN */
+  if(page === 'iuran'){
+
+    content.innerHTML = `
+
+    <h2 style="margin-bottom:20px;">
+      💰 Iuran Anggota
+    </h2>
+
+    <div class="form-box">
+
+      <div class="form-group">
+        <label>Nama Lengkap</label>
+        <input type="text" placeholder="Masukkan nama lengkap">
+      </div>
+
+      <div class="form-group">
+        <label>Nomor Anggota</label>
+        <input type="text" placeholder="Masukkan nomor anggota">
+      </div>
+
+      <div class="form-group">
+        <label>Madrasah / Instansi</label>
+        <input type="text" placeholder="Nama madrasah atau instansi">
+      </div>
+
+      <div class="form-group">
+        <label>Nominal Iuran</label>
+        <input type="number" placeholder="Contoh : 50000">
+      </div>
+
+      <div class="form-group">
+        <label>Metode Pembayaran</label>
+
+        <select>
+          <option>DANA</option>
+          <option>Transfer Bank</option>
+          <option>QRIS</option>
+        </select>
+
+      </div>
+
+      <div class="form-group">
+        <label>Upload Bukti Transfer</label>
+        <input type="file">
+      </div>
+
+      <div class="form-group">
+        <label>Catatan</label>
+        <textarea rows="4"></textarea>
+      </div>
+
+      <button class="submit-btn">
+        Kirim Iuran
+      </button>
+
+    </div>
+
     `;
+
   }
 
   /* DOWNLOAD */
   if(page === 'download'){
+
     content.innerHTML = `
-      <h2>Download</h2>
+
+    <h2 style="margin-bottom:15px;">
+      Download Center ⬇
+    </h2>
+
+    <div class="download-grid">
+
       <div class="download-card">
-        <h3>Sertifikat</h3>
+
+        <div class="download-icon">
+          🏆
+        </div>
+
+        <h3>Sertifikat Keanggotaan Tahap 1</h3>
+
+        <p>
+          Download sertifikat anggota PGM Indonesia KBB tahap pertama.
+        </p>
+
         <button class="download-btn"
-        onclick="window.open('https://script.google.com/macros/s/AKfycbxaHnWeBbzXVWvoIk8ZBdTBDCeYbyAeIhMb-k2AEH3ctpMgCQo2jSKFWLoZdNbvegl8vw/exec')">
-        Download
+        onclick="window.open(
+        'https://script.google.com/macros/s/AKfycbxaHnWeBbzXVWvoIk8ZBdTBDCeYbyAeIhMb-k2AEH3ctpMgCQo2jSKFWLoZdNbvegl8vw/exec'
+        ,'_blank')">
+
+          Download Sekarang
+
         </button>
+
       </div>
+
+      <div class="download-card">
+
+        <div class="download-icon">
+          📄
+        </div>
+
+        <h3>Surat & Dokumen</h3>
+
+        <p>
+          File surat dan dokumen resmi organisasi.
+        </p>
+
+        <button class="download-btn">
+          Segera Hadir
+        </button>
+
+      </div>
+
+    </div>
+
     `;
+
   }
 
-  /* INFO */
-  if(page === 'info'){
-    content.innerHTML = `<h2>Info</h2>`;
-  }
+  /* CHAT */
+  if(page === 'chat'){
 
-  /* close sidebar HP */
-  if(window.innerWidth < 768){
-    document.querySelector('.sidebar').classList.remove('show');
-  }
+  content.innerHTML = `
+
+  <h2>💬 Ruang Chat</h2>
+
+  <p style="color:#64748b;margin-bottom:15px;">
+    Diskusi internal PGM Indonesia KBB
+  </p>
+
+  <div class="form-box">
+
+    <div class="form-group">
+      <label>Nama</label>
+      <input type="text" placeholder="Masukkan nama">
+    </div>
+
+    <div class="form-group">
+      <label>Pesan</label>
+      <textarea rows="4" placeholder="Tulis pesan..."></textarea>
+    </div>
+
+    <button class="submit-btn">
+      Kirim (Coming Soon)
+    </button>
+
+  </div>
+
+  <p style="margin-top:15px;font-size:12px;color:#888;">
+    * Chat realtime akan diaktifkan di update berikutnya
+  </p>
+
+  `;
+}
+/* DONASI */
+if(page === 'donasi'){
+
+  content.innerHTML = `
+
+  <h2 style="margin-bottom:20px;">
+    ❤️ Donasi Pengembangan Sistem
+  </h2>
+
+  <div class="form-box">
+
+    <p style="
+    margin-bottom:20px;
+    color:#555;
+    line-height:1.6;
+    ">
+
+      Setiap dukungan membantu pengembangan
+      sistem digital PGM Indonesia KBB
+      agar terus berkembang dan bermanfaat.
+
+    </p>
+
+    <div class="form-group">
+      <label>Nama Donatur</label>
+      <input type="text"
+      placeholder="Masukkan nama">
+    </div>
+
+    <div class="form-group">
+      <label>Nominal Donasi</label>
+      <input type="number"
+      placeholder="Contoh : 50000">
+    </div>
+
+    <div class="form-group">
+      <label>Metode Pembayaran</label>
+
+      <select>
+        <option>DANA</option>
+        <option>Transfer Bank</option>
+        <option>QRIS</option>
+      </select>
+
+    </div>
+
+    <div class="form-group">
+      <label>Pesan / Dukungan</label>
+
+      <textarea rows="4"
+      placeholder="Tulis pesan dukungan"></textarea>
+    </div>
+
+    <div class="form-group">
+      <label>Upload Bukti Transfer</label>
+      <input type="file">
+    </div>
+
+    <button class="submit-btn">
+      Kirim Donasi
+    </button>
+
+  </div>
+
+  `;
+
 }
 
-function toggleSidebar(){
-  document.querySelector('.sidebar').classList.toggle('show');
+/* PENGURUS */
+if(page === 'pengurus'){
+
+  content.innerHTML = `
+
+  <h2 style="margin-bottom:10px;">
+    🧑‍💼 Struktur Pengurus
+  </h2>
+
+  <p style="color:#64748b;margin-bottom:20px;">
+    PGM Indonesia KBB - Struktur Resmi
+  </p>
+
+  <div class="anggota-grid">
+
+    <!-- KETUA -->
+    <div class="anggota-card">
+
+      <img class="anggota-foto"
+      src="https://i.imgur.com/HeIi0wU.png"
+      style="width:80px;height:80px;border-radius:50%;object-fit:cover;margin-bottom:10px;">
+
+      <div style="font-size:11px;background:#0f766e;color:white;padding:3px 8px;border-radius:6px;display:inline-block;">
+        Ketua Umum
+      </div>
+
+      <h3 style="margin-top:10px;">Tantan Hadiansyah</h3>
+      <p>S.Ag., M.M</p>
+
+    </div>
+
+    <!-- SEKRETARIS -->
+    <div class="anggota-card">
+
+      <img class="anggota-foto"
+      src="https://i.imgur.com/HeIi0wU.png"
+      style="width:80px;height:80px;border-radius:50%;object-fit:cover;margin-bottom:10px;">
+
+      <div style="font-size:11px;background:#2563eb;color:white;padding:3px 8px;border-radius:6px;display:inline-block;">
+        Sekretaris Umum
+      </div>
+
+      <h3 style="margin-top:10px;">Muhamad Hilal Hidayat</h3>
+      <p>S.Pd.I,. M.M</p>
+
+    </div>
+
+    <!-- BENDAHARA -->
+    <div class="anggota-card">
+
+      <img class="anggota-foto"
+      src="https://i.imgur.com/HeIi0wU.png"
+      style="width:80px;height:80px;border-radius:50%;object-fit:cover;margin-bottom:10px;">
+
+      <div style="font-size:11px;background:#f59e0b;color:white;padding:3px 8px;border-radius:6px;display:inline-block;">
+        Bendahara Umum
+      </div>
+
+      <h3 style="margin-top:10px;">Acep Dadang</h3>
+      <p>S.Ag</p>
+
+    </div>
+
+    <!-- TIM MEDIA -->
+    <div class="anggota-card">
+
+      <img class="anggota-foto"
+      src="https://i.imgur.com/HeIi0wU.png"
+      style="width:80px;height:80px;border-radius:50%;object-fit:cover;margin-bottom:10px;">
+
+      <div style="font-size:11px;background:#16a34a;color:white;padding:3px 8px;border-radius:6px;display:inline-block;">
+        Tim Media
+      </div>
+
+      <h3 style="margin-top:10px;">PGM Indonesia KBB</h3>
+
+      <p>1. Eval Al Faruk, S.Pd.I</p>
+      <p>2. Yuyu Kulsum, S.Pd.I</p>
+
+    </div>
+
+  </div>
+
+  `;
+}
+  /* INFO */
+  if(page === 'info'){
+
+    content.innerHTML = `
+      <h2>📢 Berbagi Info</h2>
+  <p style="color:#64748b;margin-bottom:15px;">
+    Pengumuman & informasi resmi PGM Indonesia KBB
+  </p>
+   <div class="download-grid">
+
+    <div class="download-card">
+
+      <div class="download-icon">📌</div>
+
+      <h3>Pengumuman 1</h3>
+
+      <p>
+        Belum ada informasi terbaru saat ini.
+      </p>
+
+      <button class="download-btn" disabled>
+        Menunggu Update
+      </button>
+
+    </div>
+
+    <div class="download-card">
+
+      <div class="download-icon">📢</div>
+
+      <h3>Info Kegiatan</h3>
+
+      <p>
+        Akan ditampilkan kegiatan organisasi di sini.
+      </p>
+
+      <button class="download-btn" disabled>
+        Coming Soon
+      </button>
+
+    </div>
+
+  </div>
+    `;
+
+  }
+
+}
+
+async function loadAnggota(){
+
+  const url =
+  "https://opensheet.elk.sh/1tGa0PsuFwkaKUUPXEyW2bUgPfnFjuPgyl6kvTOqpUyM/DATA%20ANGGOTA%20PGM";
+
+  const res = await fetch(url);
+
+  const data = await res.json();
+
+  let html = "";
+
+  totalAnggotaGlobal = data.length;
+
+let el = document.getElementById("totalAnggota");
+if(el){
+  el.innerText = data.length;
+}
+
+  data.forEach(item => {
+
+    // AMBIL BERDASARKAN URUTAN KOLOM
+    let values = Object.values(item);
+
+    let foto      = values[0] || "";
+    let nama      = values[1] || "-";
+    let noKta     = values[2] || "-";
+    let lembaga   = values[3] || "-";
+    let wilayah   = values[4] || "-";
+    let tahun     = values[5] || "-";
+    let status    = values[6] || "-";
+
+    html += `
+
+    <div class="anggota-card">
+
+      <img src="${foto}"
+      class="anggota-foto"
+      onerror="this.src='https://i.imgur.com/HeIi0wU.png'">
+
+      <h3>${nama}</h3>
+
+      <p>
+        <b>No KTA:</b><br>
+        ${noKta}
+      </p>
+
+      <p>
+        <b>Lembaga:</b><br>
+        ${lembaga}
+      </p>
+
+      <p>
+        <b>Wilayah:</b><br>
+        ${wilayah}
+      </p>
+
+      <p>
+        <b>Status:</b><br>
+        ${status}
+      </p>
+
+      <button class="detail-btn">
+        Detail
+      </button>
+
+    </div>
+
+    `;
+
+  });
+
+  document.getElementById("anggotaGrid")
+    .innerHTML = html;
+
+  // SEARCH
+  document.getElementById("searchAnggota")
+    .addEventListener("keyup", function(){
+
+      let keyword =
+      this.value.toLowerCase();
+
+      let cards =
+      document.querySelectorAll(".anggota-card");
+
+      cards.forEach(card => {
+
+        let text =
+        card.innerText.toLowerCase();
+
+        card.style.display =
+        text.includes(keyword)
+        ? "block"
+        : "none";
+
+      });
+
+    });
+
+}
+function toggleSidebar() {
+
+  document
+    .querySelector('.sidebar')
+    .classList
+    .toggle('show');
+
+}
+
+/* SERVICE WORKER */
+if ('serviceWorker' in navigator) {
+
+  window.addEventListener('load', () => {
+
+    navigator.serviceWorker
+      .register('./service-worker.js')
+      .then((reg) => {
+
+        console.log('Service Worker berhasil');
+
+      })
+      .catch((err) => {
+
+        console.log('Service Worker gagal', err);
+
+      });
+
+  });
+
 }
 
 </script>
