@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -69,7 +69,6 @@ body{
 .container{
   display:flex;
   min-height:100vh;
-  height:100vh;
 }
 /* =====================
    SIDEBAR
@@ -83,8 +82,7 @@ body{
   display:flex;
   flex-direction:column;
 
-  height:100vh;
-  overflow-y:auto;
+  min-height:100vh;
 }
 
 /* MEDIA BOX */
@@ -157,9 +155,6 @@ body{
 .content{
   flex:1;
   padding:20px;
-
-  height:100vh;
-  overflow-y:auto;
 }
 
 /* =====================
@@ -414,14 +409,6 @@ body{
 /* FOTO ANGGOTA */
 
 .anggota-foto{
-  width:70px;
-  height:70px;
-  border-radius:50%;
-  object-fit:cover;
-  margin-bottom:15px;
-  border:3px solid #0f766e;
-}
-.anggota-foto{
   width:80px;
   height:80px;
   border-radius:50%;
@@ -429,6 +416,7 @@ body{
   border:3px solid #0f766e;
   margin-bottom:15px;
 }
+
 /* ===== UPGRADE PENDATAAN UI ===== */
 .download-card{
   background:white;
@@ -543,6 +531,44 @@ body{
     height:auto;
     overflow:visible;
   }
+.header{
+  flex-direction:column;
+  gap:10px;
+  text-align:center;
+  padding:15px;
+}
+
+.header-center{
+  position:static;
+  transform:none;
+  flex-direction:column;
+}
+
+.login-btn{
+  width:100%;
+}
+
+.menu-btn{
+  padding:14px;
+  font-size:15px;
+}
+
+.download-grid,
+.anggota-grid,
+.stats-grid{
+  grid-template-columns:1fr;
+}
+
+.form-box{
+  padding:18px;
+}
+
+.download-btn,
+.submit-btn,
+.detail-btn,
+.donasi-btn{
+  width:100%;
+}
 
 }
 
