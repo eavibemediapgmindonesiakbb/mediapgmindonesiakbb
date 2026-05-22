@@ -648,6 +648,35 @@ body{
    body{
   padding-bottom: 70px;
 }
+  .bottom-nav{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: white;
+  display: flex;
+  border-top: 1px solid #ddd;
+  z-index: 999;
+}
+
+.nav-item{
+  flex:1;
+  text-align:center;
+  padding:10px;
+  font-size:12px;
+  cursor:pointer;
+  color:#444;
+  transition:0.2s;
+}
+
+.nav-item:hover{
+  color:#0f766e;
+}
+
+.nav-item.active{
+  color:#0f766e;
+  font-weight:bold;
+} 
 </style>
 </head>
 
@@ -808,6 +837,13 @@ if(window.innerWidth < 768){
     .classList
     .remove('show');
 
+}
+   // reset bottom nav active
+document.querySelectorAll('.nav-item')
+.forEach(i => i.classList.remove('active'));
+
+if(el){
+  el.classList.add('active');
 }
   let page = el.getAttribute('data-page');
 
@@ -1513,25 +1549,57 @@ if ('serviceWorker' in navigator) {
 }
 
 </script>
-<!-- NAVBAR BAWAH -->
+<!-- NAVBAR BAWAH (FINAL) -->
 <div class="bottom-nav">
 
-  <a href="#home" class="nav-item">
+  <div class="nav-item active"
+       onclick="setPage(document.querySelector('[data-page=home]'))">
     🏠<br>Home
-  </a>
+  </div>
 
-  <a href="#data" class="nav-item">
-    📄<br>Data
-  </a>
+  <div class="nav-item"
+       onclick="setPage(document.querySelector('[data-page=pendataan]'))">
+    📋<br>Data
+  </div>
 
-  <a href="#sertifikat" class="nav-item">
-    🏆<br>Sertifikat
-  </a>
+  <div class="nav-item"
+       onclick="setPage(document.querySelector('[data-page=download]'))">
+    ⬇<br>Download
+  </div>
 
-  <a href="#profil" class="nav-item">
-    👤<br>Profil
-  </a>
+  <div class="nav-item"
+       onclick="setPage(document.querySelector('[data-page=info]'))">
+    👤<br>Info
+  </div>
 
 </div>
+   <html>
+<head>
+  <title>Web PGM</title>
+</head>
+
+<body>
+
+  <!-- INI BAGIAN KONTEN HALAMAN -->
+  
+  <section id="sertifikat">
+    <h2>Sertifikat</h2>
+  </section>
+
+  <section id="profil">
+    <h2>Profil</h2>
+  </section>
+
+  <!-- NAVBAR BAWAH -->
+  <div class="bottom-nav">
+    <a href="#data">Data</a>
+    <a href="#sertifikat">Sertifikat</a>
+    <a href="#profil">Profil</a>
+  </div>
+<script>
+function bukaData(){
+  alert("Menu Data dibuka");
+}
+</script>
 </body>
 </html>
