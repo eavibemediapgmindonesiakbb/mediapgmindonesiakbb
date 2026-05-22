@@ -1,6 +1,6 @@
 {
   "name": "Media PGM Indonesia KBB",
-  "short_name": "Media PGM",
+  "short_name": "PGM_Indo_KBB",
   "start_url": "./",
   "display": "standalone",
   "background_color": "#ffffff",
