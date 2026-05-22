@@ -619,7 +619,35 @@ body{
   }
 
 }
+/* ===== NAVBAR BAWAH ===== */
+.bottom-nav{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: white;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 8px 0;
+  border-top: 1px solid #ddd;
+  z-index: 999;
+}
 
+.nav-item{
+  text-decoration: none;
+  color: #333;
+  font-size: 12px;
+  text-align: center;
+  flex: 1;
+}
+
+.nav-item:hover{
+  color: #0d6efd;
+}
+   body{
+  padding-bottom: 70px;
+}
 </style>
 </head>
 
@@ -1485,6 +1513,25 @@ if ('serviceWorker' in navigator) {
 }
 
 </script>
+<!-- NAVBAR BAWAH -->
+<div class="bottom-nav">
 
+  <a href="#home" class="nav-item">
+    🏠<br>Home
+  </a>
+
+  <a href="#data" class="nav-item">
+    📄<br>Data
+  </a>
+
+  <a href="#sertifikat" class="nav-item">
+    🏆<br>Sertifikat
+  </a>
+
+  <a href="#profil" class="nav-item">
+    👤<br>Profil
+  </a>
+
+</div>
 </body>
 </html>
