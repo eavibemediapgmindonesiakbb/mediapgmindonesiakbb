@@ -838,14 +838,18 @@ if(window.innerWidth < 768){
     .remove('show');
 
 }
-   // reset bottom nav active
-document.querySelectorAll('.nav-item')
-.forEach(i => i.classList.remove('active'));
+     // reset sidebar menu
+  document.querySelectorAll('.menu-btn')
+    .forEach(btn => btn.classList.remove('active'));
 
-if(el){
-  el.classList.add('active');
-}
-  let page = el.getAttribute('data-page');
+  // reset bottom nav
+  document.querySelectorAll('.nav-item')
+    .forEach(i => i.classList.remove('active'));
+
+  // aktifkan tombol yg dipilih
+  if(el){
+    el.classList.add('active');
+  }
 
   let content = document.getElementById('content');
 
@@ -1553,37 +1557,26 @@ if ('serviceWorker' in navigator) {
 <div class="bottom-nav">
 
   <div class="nav-item active"
-       onclick="setPage(document.querySelector('[data-page=home]'))">
+       onclick="setPage(this, 'home')">
     🏠<br>Home
   </div>
 
   <div class="nav-item"
-       onclick="setPage(document.querySelector('[data-page=pendataan]'))">
+       onclick="setPage(this, 'pendataan')">
     📋<br>Data
   </div>
 
   <div class="nav-item"
-       onclick="setPage(document.querySelector('[data-page=download]'))">
+       onclick="setPage(this, 'download')">
     ⬇<br>Download
   </div>
 
   <div class="nav-item"
-       onclick="setPage(document.querySelector('[data-page=info]'))">
+       onclick="setPage(this, 'info')">
     👤<br>Info
   </div>
 
 </div>
-   <html>
-<head>
-  <title>Web PGM</title>
-</head>
-
-<body>
-
-<script>
-function bukaData(){
-  alert("Menu Data dibuka");
-}
-</script>
+   
 </body>
 </html>
