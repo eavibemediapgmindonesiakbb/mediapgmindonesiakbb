@@ -1452,9 +1452,7 @@ if(el){
     });
 
 }
-<script>
-
-function toggleSidebar(){
+function toggleSidebar() {
 
   document
     .querySelector('.sidebar')
@@ -1463,12 +1461,29 @@ function toggleSidebar(){
 
 }
 
+/* SERVICE WORKER */
 if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('./service-worker.js');
+
+  window.addEventListener('load', () => {
+
+    navigator.serviceWorker
+      .register('./service-worker.js')
+      .then((reg) => {
+
+        console.log('Service Worker berhasil');
+
+      })
+      .catch((err) => {
+
+        console.log('Service Worker gagal', err);
+
+      });
+
+  });
+
 }
 
 </script>
 
 </body>
 </html>
-
