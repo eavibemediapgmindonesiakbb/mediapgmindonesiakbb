@@ -750,30 +750,30 @@ onclick="toggleSidebar()">
 
       <h3>PGM Indonesia KBB</h3>
 
-      <button class="menu-btn" data-page="pendataan" onclick="setPage(this)">
+      <button class="menu-btn" data-page="pendataan" onclick="setPage(this,'pendataan')">
         📋 Pendataan Anggota
       </button>
 
-      <button class="menu-btn" data-page="anggota" onclick="setPage(this)">
+      <button class="menu-btn" data-page="anggota" onclick="setPage(this,'anggota')">
         👥 Data Anggota
       </button>
 
-      <button class="menu-btn" data-page="iuran" onclick="setPage(this)">
+      <button class="menu-btn" data-page="iuran" onclick="setPage(this,'iuran')">
         💰 Iuran Anggota
       </button>
 
-      <button class="menu-btn" data-page="download" onclick="setPage(this)">
+      <button class="menu-btn" data-page="download" onclick="setPage(this,'download')">
         ⬇ Download
       </button>
 
-      <button class="menu-btn" data-page="chat" onclick="setPage(this)">
+      <button class="menu-btn" data-page="chat" onclick="setPage(this,'chat')">
         💬 Ruang Chat
       </button>
 
-      <button class="menu-btn" data-page="info" onclick="setPage(this)">
+      <button class="menu-btn" data-page="info" onclick="setPage(this,'info')">
         📢 Berbagi Info
       </button>
-      <button class="menu-btn" data-page="pengurus" onclick="setPage(this)">
+      <button class="menu-btn" data-page="pengurus" onclick="setPage(this,'pengurus')">
   🧑‍💼  Pengurus
       </button>
     </div>
@@ -821,35 +821,40 @@ onclick="setPage(this)">
 <!-- SCRIPT -->
 <script>
 let totalAnggotaGlobal = 0;
-function setPage(el){
+function setPage(el, page){
 
-  // remove active
+  // kalau el bukan element valid
+  if(!el || !page){
+    console.log("setPage error", el, page);
+    return;
+  }
+
+  // sidebar menu active reset
   document.querySelectorAll('.menu-btn')
     .forEach(btn => btn.classList.remove('active'));
 
-  // active
-  el.classList.add('active');
-// tutup sidebar di HP
-if(window.innerWidth < 768){
-
-  document
-    .querySelector('.sidebar')
-    .classList
-    .remove('show');
-
-}
-     // reset sidebar menu
-  document.querySelectorAll('.menu-btn')
-    .forEach(btn => btn.classList.remove('active'));
-
-  // reset bottom nav
+  // bottom nav reset
   document.querySelectorAll('.nav-item')
     .forEach(i => i.classList.remove('active'));
 
-  // aktifkan tombol yg dipilih
-  if(el){
-    el.classList.add('active');
+  el.classList.add('active');
+
+  // tutup sidebar HP
+  if(window.innerWidth < 768){
+    document.querySelector('.sidebar')
+      .classList.remove('show');
   }
+
+  let content = document.getElementById('content');
+
+  /* ROUTE */
+  if(page === 'home'){ /* isi kamu tetap */ }
+  if(page === 'pendataan'){ /* ... */ }
+  if(page === 'anggota'){ /* ... */ }
+  if(page === 'download'){ /* ... */ }
+  if(page === 'info'){ /* ... */ }
+
+}
 
   let content = document.getElementById('content');
 
@@ -1557,22 +1562,22 @@ if ('serviceWorker' in navigator) {
 <div class="bottom-nav">
 
   <div class="nav-item active"
-       onclick="setPage(this, 'home')">
+       onclick="setPage(this,'home')">
     🏠<br>Home
   </div>
 
   <div class="nav-item"
-       onclick="setPage(this, 'pendataan')">
+       onclick="setPage(this,'pendataan')">
     📋<br>Data
   </div>
 
   <div class="nav-item"
-       onclick="setPage(this, 'download')">
+       onclick="setPage(this,'download')">
     ⬇<br>Download
   </div>
 
   <div class="nav-item"
-       onclick="setPage(this, 'info')">
+       onclick="setPage(this,'info')">
     👤<br>Info
   </div>
 
